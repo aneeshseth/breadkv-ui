@@ -1,17 +1,12 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { ArrowRight, Database, Zap, Lock, BarChart3, Code, Github } from "lucide-react"
-import { useRouter } from "next/navigation"
-import { randomUUID } from "crypto"
-import { v4 as uuidv4 } from 'uuid';
-import randomstring from 'randomstring'
+import { Button } from "@/components/ui/button";
+import { ArrowRight, Database } from "lucide-react";
+import { useRouter } from "next/navigation";
+import randomstring from "randomstring";
 
 export default function BreadKVLanding() {
-  const router = useRouter()
+  const router = useRouter();
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -20,21 +15,26 @@ export default function BreadKVLanding() {
           <Database className="h-6 w-6 text-amber-500" />
           <span className="font-bold text-xl tracking-tight">BreadKV</span>
         </div>
-        <nav className="hidden md:flex items-center gap-8">
-        </nav>
+        <nav className="hidden md:flex items-center gap-8"></nav>
         <div className="flex items-center gap-4">
           <Button className="hidden md:flex border-zinc-800 hover:bg-zinc-900">
             Read docs
           </Button>
-         <Button size="lg" className="bg-amber-500 hover:bg-amber-600 text-black" onClick={() => {
-          router.push(`/terminal/${randomstring.generate({
-            length: 12,
-            charset: 'lowercase'
-          })}?create=true`)
-         }}>
-               Start
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
+          <Button
+            size="lg"
+            className="bg-amber-500 hover:bg-amber-600 text-black"
+            onClick={() => {
+              router.push(
+                `/terminal/${randomstring.generate({
+                  length: 12,
+                  charset: "lowercase",
+                })}?create=true`
+              );
+            }}
+          >
+            Start
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </Button>
         </div>
       </header>
 
@@ -44,26 +44,35 @@ export default function BreadKVLanding() {
             a key-value database from the browser
           </h1>
           <p className="text-xl md:text-2xl text-zinc-400 mb-10 max-w-2xl mx-auto">
-            spin up your own instance running a key value store, and run commands in your own redis playground.
+            spin up your own instance running a key value store, and run
+            commands in your own redis playground.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-amber-500 hover:bg-amber-600 text-black" onClick={() => {
-          router.push(`/terminal/${randomstring.generate({
-            length: 12,
-            charset: 'lowercase'
-          })}?create=true`)
-         }}>
-               Start
+            <Button
+              size="lg"
+              className="bg-amber-500 hover:bg-amber-600 text-black"
+              onClick={() => {
+                router.push(
+                  `/terminal/${randomstring.generate({
+                    length: 12,
+                    charset: "lowercase",
+                  })}?create=true`
+                );
+              }}
+            >
+              Start
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
-            <Button size="lg" className="border-zinc-800 hover:bg-zinc-900 cursor:pointer">
+            <Button
+              size="lg"
+              className="border-zinc-800 hover:bg-zinc-900 cursor:pointer"
+            >
               Read the docs
             </Button>
           </div>
         </div>
       </section>
 
-      
       <footer className="container mx-auto px-4 py-12 border-zinc-900">
         <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-zinc-900">
           <div className="flex items-center gap-2 mb-4 md:mb-0">
@@ -73,6 +82,5 @@ export default function BreadKVLanding() {
         </div>
       </footer>
     </div>
-  )
+  );
 }
-
