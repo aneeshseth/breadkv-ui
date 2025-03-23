@@ -192,8 +192,11 @@ export default function TComponent({ slug }: any) {
           onClick={handleTerminalClick}
         >
           {isLoading && (
-            <div className="flex items-center justify-center h-full">
+            <div className="flex items-center justify-center h-full flex-col">
               <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-yellow-400"></div>
+              <div className="text-sm font-medium">
+                (takes 15-40 seconds to spin up your instance)
+              </div>
             </div>
           )}
 
