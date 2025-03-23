@@ -25,7 +25,7 @@ export default function TComponent({ slug }: any) {
       const data = await res.data;
       return data;
     } catch (err) {
-      router.push(`/error_instance/${slug}`);
+      throw err;
     }
   }
 
@@ -37,7 +37,7 @@ export default function TComponent({ slug }: any) {
       const data = await res.data;
       return data;
     } catch (err) {
-      router.push(`/error_instance/${slug}`);
+      throw err;
     }
   }
 
@@ -72,24 +72,37 @@ export default function TComponent({ slug }: any) {
 
         try {
           await startupComponents();
-          await new Promise((resolve) => setTimeout(resolve, 15000));
-          const data = await checkValidity();
+        } catch {
+          try {
+            await checkValidity();
+          } catch {
+            router.push(`/error_instance/${slug}`);
+            return;
+          }
+        }
 
+        await new Promise((resolve) => setTimeout(resolve, 15000));
+
+        try {
+          await checkValidity();
           setHistory([
             {
               command: "",
               output:
-                "Instance created! You will have 15 minutes since this instance's creation to use it, after which it will be destroyed. Type 'help' for available commands.",
+                "Welcome! You will have 15 minutes since this instance's creation to use it, after which it will be destroyed. Type 'help' for available commands.",
             },
           ]);
-        } catch (err) {
+        } catch {
+          router.push(`/error_instance/${slug}`);
         } finally {
           setIsLoading(false);
         }
       } else {
         try {
           await checkValidity();
-        } catch (err) {}
+        } catch {
+          router.push(`/error_instance/${slug}`);
+        }
       }
     };
 
@@ -198,7 +211,7 @@ export default function TComponent({ slug }: any) {
             <div className="flex items-center justify-center h-full flex-col">
               <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-yellow-400"></div>
               <div className="text-sm font-medium mt-4">
-                (takes 15-40 seconds to spin up your instance)
+                (takes 15-40 seconds to spin up/fetch your instance)
               </div>
             </div>
           )}
