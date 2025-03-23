@@ -45,7 +45,7 @@ export default function BreadKVLanding() {
           </h1>
           <p className="text-xl md:text-2xl text-zinc-400 mb-10 max-w-2xl mx-auto">
             spin up your own instance running a key value store, and run
-            commands in your own redis playground.
+            commands in your own redis like playground.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
