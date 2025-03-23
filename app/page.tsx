@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Database } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import randomstring from "randomstring";
 
 export default function BreadKVLanding() {
@@ -17,7 +17,12 @@ export default function BreadKVLanding() {
         </div>
         <nav className="hidden md:flex items-center gap-8"></nav>
         <div className="flex items-center gap-4">
-          <Button className="hidden md:flex border-zinc-800 hover:bg-zinc-900">
+          <Button
+            className="hidden md:flex border-zinc-800 hover:bg-zinc-900 cursor:pointer z-50"
+            onClick={() => {
+              window.open("https://aneesh-4006c9c5.mintlify.app/introduction");
+            }}
+          >
             Read docs
           </Button>
           <Button
@@ -66,6 +71,11 @@ export default function BreadKVLanding() {
             <Button
               size="lg"
               className="border-zinc-800 hover:bg-zinc-900 cursor:pointer"
+              onClick={() => {
+                window.open(
+                  "https://aneesh-4006c9c5.mintlify.app/introduction"
+                );
+              }}
             >
               Read the docs
             </Button>
