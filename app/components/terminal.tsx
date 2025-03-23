@@ -31,7 +31,7 @@ export default function TComponent({ slug }: any) {
 
   async function startupComponents() {
     try {
-      const res = await axios.post(`http://localhost:3002/start`, {
+      const res = await axios.post(`https://server.bowbox.click/start`, {
         instanceId: slug,
       });
       const data = await res.data;
@@ -80,7 +80,7 @@ export default function TComponent({ slug }: any) {
             {
               command: "",
               output:
-                "Instance created successfully! Welcome to your BreadKV instance. You will have 15 minutes since this instance's creation to use it, after which it will be destroyed. Type 'help' for available commands.",
+                "Instance created! You will have 15 minutes since this instance's creation to use it, after which it will be destroyed. Type 'help' for available commands.",
             },
           ]);
         } catch (err) {
@@ -102,7 +102,7 @@ export default function TComponent({ slug }: any) {
       {
         command: "",
         output:
-          "Welcome to your BreadKV instance. Type 'help' for available commands.",
+          "Welcome! Type 'help' for available commands. You will have 15 minutes since this instance's creation to use it, after which it will be destroyed.",
       },
     ]
   );
