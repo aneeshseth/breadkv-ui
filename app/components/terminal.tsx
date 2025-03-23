@@ -66,8 +66,7 @@ export default function TComponent({ slug }: any) {
         setHistory([
           {
             command: "",
-            output:
-              "Creating new BreadKV instance, usually takes 15-35 seconds. Please wait...",
+            output: "Creating new BreadKV instance, Please wait...",
           },
         ]);
 
@@ -183,7 +182,11 @@ export default function TComponent({ slug }: any) {
             <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
             <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
           </div>
-          <div className="text-sm font-medium">BreadKV Terminal - {slug}</div>
+          <div className="text-sm font-medium">
+            This runs your instance{" "}
+            <span className="text-green-500"> {slug} </span> in a remote managed
+            cluster.
+          </div>
         </div>
 
         <div
@@ -194,7 +197,7 @@ export default function TComponent({ slug }: any) {
           {isLoading && (
             <div className="flex items-center justify-center h-full flex-col">
               <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-yellow-400"></div>
-              <div className="text-sm font-medium">
+              <div className="text-sm font-medium mt-4">
                 (takes 15-40 seconds to spin up your instance)
               </div>
             </div>
