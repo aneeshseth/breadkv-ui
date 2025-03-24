@@ -72,6 +72,7 @@ export default function TComponent({ slug }: any) {
 
         try {
           await startupComponents();
+          await new Promise((resolve) => setTimeout(resolve, 15000));
         } catch {
           try {
             await checkValidity();
@@ -80,8 +81,6 @@ export default function TComponent({ slug }: any) {
             return;
           }
         }
-
-        await new Promise((resolve) => setTimeout(resolve, 15000));
 
         try {
           await checkValidity();
