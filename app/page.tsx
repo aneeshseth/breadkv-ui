@@ -29,15 +29,10 @@ export default function BreadKVLanding() {
             size="lg"
             className="bg-amber-500 hover:bg-amber-600 text-black"
             onClick={() => {
-              router.push(
-                `/terminal/${randomstring.generate({
-                  length: 12,
-                  charset: "lowercase",
-                })}?create=true`
-              );
+              router.push(`/demo/`);
             }}
           >
-            Start
+            Watch demo
             <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         </div>
@@ -57,15 +52,10 @@ export default function BreadKVLanding() {
               size="lg"
               className="bg-amber-500 hover:bg-amber-600 text-black"
               onClick={() => {
-                router.push(
-                  `/terminal/${randomstring.generate({
-                    length: 12,
-                    charset: "lowercase",
-                  })}?create=true`
-                );
+                router.push(`/demo`);
               }}
             >
-              Start
+              Watch demo
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
             <Button
